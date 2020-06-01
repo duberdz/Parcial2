@@ -95,16 +95,6 @@ public class RegFrag extends Fragment {
                 resultats.setText(cursor.getString(0)+"\n"+cursor.getString(1)+"\n"+
                         cursor.getInt(2)+"\n"+cursor.getString(3)+"\n"+cursor.getString(4)+"\n"+cursor.getString(5));
 
-                resultFinal = cursor.getString(5);
-
-                ResulPFrag res = new ResulPFrag();
-                Bundle args = new Bundle();
-                args.putString("estado", resultFinal);
-                res.setArguments(args);
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.imagenResultado, res);
-                transaction.commit();
-
             }
         }
 
