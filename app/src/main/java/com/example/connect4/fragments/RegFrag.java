@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.support.v4.app.FragmentTransaction;
 
 import com.example.connect4.R;
 import com.example.connect4.bd.PartidesSQLiteHelper;
@@ -32,6 +33,8 @@ public class RegFrag extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    public String resultFinal;
 
     private OnFragmentInteractionListener mListener;
 
@@ -90,11 +93,24 @@ public class RegFrag extends Fragment {
                 cursor.moveToFirst();
 
                 resultats.setText(cursor.getString(0)+"\n"+cursor.getString(1)+"\n"+
-                        cursor.getInt(2)+"\n"+cursor.getString(3)+"\n"+cursor.getString(4)+"\n"+
-                        cursor.getString(5));
+                        cursor.getInt(2)+"\n"+cursor.getString(3)+"\n"+cursor.getString(4)+"\n"+cursor.getString(5));
+
+                resultFinal = cursor.getString(5);
+
+                ResulPFrag res = new ResulPFrag();
+                Bundle args = new Bundle();
+                args.putString("estado", resultFinal);
+                res.setArguments(args);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.imagenResultado, res);
+                transaction.commit();
 
             }
         }
+
+
+
+
         return view;
     }
 

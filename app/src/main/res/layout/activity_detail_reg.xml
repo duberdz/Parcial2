@@ -19,8 +19,17 @@
         android:id="@+id/detail"
         android:name="com.example.connect4.fragments.RegFrag"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        tools:layout="@layout/fragment_reg" />
+        android:layout_height="250dp"
+        tools:layout="@layout/fragment_reg"
+        android:orientation="horizontal" />
+
+    <fragment
+        android:id="@+id/imagenResultado"
+        android:name="com.example.connect4.fragments.ResulPFrag"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        tools:layout="@layout/fragment_resul_p"
+        android:orientation="horizontal" />
 
     <Button
         android:id="@+id/btnTornardet"
